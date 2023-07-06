@@ -9,9 +9,9 @@
 
 ## Src
 
-1 assets - contains our project's assets that is images
-2 components - contains elements that different parts of our application utilize. This creates uniformity across the application i.e button styling.
-3 interface - contains that manipulate the dom directly i.e modals.
-4 services - contains our global state manager. In this instance we are using react context.
-5 utils - contains repeatedly used functions i.e axios
-6 pages - contains files that indicate routes of our application
+1. assets - contains our project's assets that is images
+2. components - contains elements that different parts of our application utilize. This creates uniformity across the application i.e button styling.
+3. interface - contains that manipulate the dom directly i.e modals.
+4. services - contains our global state manager. In this instance we are using react context.
+5. utils - contains repeatedly used functions i.e axios
+6. pages - contains files that indicate routes of our application

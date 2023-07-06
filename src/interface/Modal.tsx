@@ -3,8 +3,11 @@
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-const Backdrop = () => (
-	<section className="fixed top-0 left-0 w-full h-[100vh] z-10 bg-[#252525b4] cursor-pointer"></section>
+const Backdrop = ({ onClose }: { onClose: () => void }) => (
+	<section
+		className="fixed top-0 left-0 w-full h-[100vh] z-10 bg-[#252525b4] cursor-pointer"
+		onClick={onClose}
+	></section>
 );
 
 const ModalBody = ({
@@ -24,6 +27,7 @@ const ModalBody = ({
 const modalEl: HTMLElement = document.getElementById("modal") as HTMLElement;
 
 const Modal = ({
+	onClose,
 	children,
 	additionalStyles,
 }: {
@@ -33,7 +37,7 @@ const Modal = ({
 }) => {
 	return (
 		<>
-			{createPortal(<Backdrop />, modalEl)}
+			{createPortal(<Backdrop onClose={onClose} />, modalEl)}
 			{createPortal(
 				<ModalBody additionalStyles={additionalStyles} children={children} />,
 				modalEl

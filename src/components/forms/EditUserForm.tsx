@@ -44,7 +44,7 @@ const EditUserForm = ({
 		availableUsers[userIdx] = data;
 		try {
 			await appCtx?.editUser(data);
-			await appCtx?.updateUsersList(availableUsers);
+			await appCtx?.updateUsersList([...availableUsers]);
 			setSuccess(true);
 			setTimeout(() => closeModal(), 3000);
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -55,6 +55,7 @@ const EditUserForm = ({
 			setTimeout(() => clearErrors(), 4000);
 		}
 	};
+
 	const inputStyles =
 		"w-full p-2  h-5 py-6  rounded-lg border border-subtlebox-border hover:border-primary focus:outline-none focus:!border-primary";
 

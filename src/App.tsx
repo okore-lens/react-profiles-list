@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 // components
-import UsersList from "./components/UsersList";
 import SolidButton from "./components/buttons/SolidButton";
 import CreateUserForm from "./components/forms/CreateUserForm";
 import Spinner from "./components/Spinner";
@@ -8,6 +7,8 @@ import Spinner from "./components/Spinner";
 import Modal from "./interface/Modal";
 // services
 import AppContext from "./services/app/app-context";
+// pages
+import HomePage from "./pages/HomePage";
 
 function App() {
 	// hooks
@@ -39,7 +40,7 @@ function App() {
 				txtColor="text-white"
 				onClick={() => setOpenModal(true)}
 			/>
-			{isLoading ? <Spinner /> : <UsersList />}
+			{isLoading ? <Spinner /> : <HomePage />}
 		</section>
 	);
 }

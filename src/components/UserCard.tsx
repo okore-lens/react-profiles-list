@@ -54,7 +54,7 @@ const UserCard = (user: userData) => {
 		<section className="shadow w-[95%] xl:w-1/2 mx-auto p-4 rounded-xl my-5 ">
 			{openDeleteModal && (
 				<Modal onClose={() => setOpenDeleteModal(false)}>
-					<p>Are You sure you want to delete {user.name} ?</p>
+					{!success && <p>Are You sure you want to delete {user.name} ?</p>}
 					<section className="mt-5">
 						{success && (
 							<RequestStatus

@@ -2,10 +2,10 @@
 import { useContext } from "react";
 // services
 import AppContext from "../services/app/app-context";
-// .............................................
-import UserCard from "./UserCard";
+// components
+import UserCard from "../components/UserCard";
 
-const UsersList = () => {
+const HomePage = () => {
 	const appCtx = useContext(AppContext);
 
 	const users = appCtx?.users;
@@ -32,4 +32,4 @@ const UsersList = () => {
 	);
 };
 
-export default UsersList;
+export default HomePage;

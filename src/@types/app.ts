@@ -4,6 +4,7 @@ export type userData = {
 	email: string;
 	phone: string;
 	company: { name: string };
-	street: string;
-	id: number;
+	address: { street: string };
+	id: string;
+	afterSubmit?: boolean;
 };

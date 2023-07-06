@@ -1,48 +1,30 @@
-import { useEffect, useState } from "react";
-// utils
-import axiosInstance from "../utils/axios";
-// @types
-import { userData } from "../@types/app";
-import Spinner from "./Spinner";
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useContext } from "react";
+// services
+import AppContext from "../services/app/app-context";
+// .............................................
 import UserCard from "./UserCard";
 
 const UsersList = () => {
-	const [users, setUsers] = useState<userData[]>([]);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const appCtx = useContext(AppContext);
 
-	const fetchUsers = async () => {
-		setIsLoading(true);
-		try {
-			const response = await axiosInstance.get("users");
-			setUsers(response.data);
-		} catch (err) {
-			console.log(err);
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
-	useEffect(() => {
-		fetchUsers();
-	}, []);
+	const users = appCtx?.users;
 
 	return (
 		<section className=" h-[100vh]">
-			{isLoading ? (
-				<Spinner />
-			) : users.length < 1 ? (
+			{users!.length < 1 ? (
 				<p>No Users Available</p>
 			) : (
-				users.map((user) => (
+				users!.map((user, idx) => (
 					<UserCard
-						key={user.id}
+						key={idx}
 						company={user.company}
 						email={user.email}
 						name={user.name}
-						id={user.id}
 						phone={user.phone}
-						street={user.street}
+						address={user.address}
 						username={user.username}
+						id={user.id}
 					/>
 				))
 			)}
